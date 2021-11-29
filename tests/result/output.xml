@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.10.0 on win32)" generated="20211128 21:55:57.604" rpa="false" schemaversion="2">
+<suite id="s1" name="SwagLagsTests" source="C:\Users\Alex\Desktop\SwagLabs\tests\SwagLagsTests.robot">
+<test id="s1-t1" name="Test Case 5: Click Logout menu item">
+<kw name="Open Website" library="Resource" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211128 21:55:57.853" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20211128 21:55:57.853" endtime="20211128 21:55:59.046"/>
+</kw>
+<status status="PASS" starttime="20211128 21:55:57.852" endtime="20211128 21:55:59.046"/>
+</kw>
+<kw name="Given than user access the Swag Labs website" library="Resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211128 21:55:59.047" level="INFO">Opening url 'https://www.saucedemo.com/'</msg>
+<status status="PASS" starttime="20211128 21:55:59.047" endtime="20211128 21:55:59.887"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Swag Labs</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211128 21:55:59.896" level="INFO">Page title is 'Swag Labs'.</msg>
+<status status="PASS" starttime="20211128 21:55:59.888" endtime="20211128 21:55:59.897"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>id=login-button</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20211128 21:55:59.942" level="INFO">Element 'id=login-button' is displayed.</msg>
+<status status="PASS" starttime="20211128 21:55:59.897" endtime="20211128 21:55:59.942"/>
+</kw>
+<status status="PASS" starttime="20211128 21:55:59.047" endtime="20211128 21:55:59.942"/>
+</kw>
+<kw name="When user informs username and password" library="Resource">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=user-name</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211128 21:55:59.944" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<status status="PASS" starttime="20211128 21:55:59.943" endtime="20211128 21:56:00.046"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211128 21:56:00.047" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20211128 21:56:00.046" endtime="20211128 21:56:00.139"/>
+</kw>
+<status status="PASS" starttime="20211128 21:55:59.942" endtime="20211128 21:56:00.139"/>
+</kw>
+<kw name="And click Login button" library="Resource">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id=login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211128 21:56:00.140" level="INFO">Clicking button 'id=login-button'.</msg>
+<status status="PASS" starttime="20211128 21:56:00.140" endtime="20211128 21:56:00.242"/>
+</kw>
+<status status="PASS" starttime="20211128 21:56:00.139" endtime="20211128 21:56:00.243"/>
+</kw>
+<kw name="And click the menu button" library="Resource">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id=react-burger-menu-btn</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211128 21:56:00.245" level="INFO">Clicking button 'id=react-burger-menu-btn'.</msg>
+<status status="PASS" starttime="20211128 21:56:00.244" endtime="20211128 21:56:00.435"/>
+</kw>
+<status status="PASS" starttime="20211128 21:56:00.243" endtime="20211128 21:56:00.435"/>
+</kw>
+<kw name="And then click in the &quot;Logout&quot; item in the menu list" library="Resource">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>id=inventory_sidebar_link</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211128 21:56:00.436" endtime="20211128 21:56:00.722"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>id=logout_sidebar_link</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211128 21:56:00.723" level="INFO">Clicking element 'id=logout_sidebar_link'.</msg>
+<status status="PASS" starttime="20211128 21:56:00.723" endtime="20211128 21:56:00.772"/>
+</kw>
+<status status="PASS" starttime="20211128 21:56:00.436" endtime="20211128 21:56:00.772"/>
+</kw>
+<kw name="Then the Login page should load" library="Resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Swag Labs</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211128 21:56:00.780" level="INFO">Page title is 'Swag Labs'.</msg>
+<status status="PASS" starttime="20211128 21:56:00.773" endtime="20211128 21:56:00.780"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>id=user-name</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20211128 21:56:00.800" level="INFO">Element 'id=user-name' is displayed.</msg>
+<status status="PASS" starttime="20211128 21:56:00.780" endtime="20211128 21:56:00.800"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>id=password</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20211128 21:56:00.819" level="INFO">Element 'id=password' is displayed.</msg>
+<status status="PASS" starttime="20211128 21:56:00.800" endtime="20211128 21:56:00.819"/>
+</kw>
+<status status="PASS" starttime="20211128 21:56:00.773" endtime="20211128 21:56:00.819"/>
+</kw>
+<kw name="Close Website" library="Resource" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20211128 21:56:00.820" endtime="20211128 21:56:03.018"/>
+</kw>
+<status status="PASS" starttime="20211128 21:56:00.820" endtime="20211128 21:56:03.018"/>
+</kw>
+<status status="PASS" starttime="20211128 21:55:57.851" endtime="20211128 21:56:03.019"/>
+</test>
+<status status="PASS" starttime="20211128 21:55:57.607" endtime="20211128 21:56:03.021"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="SwagLagsTests">SwagLagsTests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

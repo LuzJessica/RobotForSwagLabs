@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.10.0 on win32)" generated="20211128 22:25:31.137" rpa="false" schemaversion="2">
+<suite id="s1" name="SwagLagsTests" source="C:\Users\Alex\Desktop\SwagLabs\tests\SwagLagsTests.robot">
+<test id="s1-t1" name="Test Case 6: Show Name filter options">
+<kw name="Open Website" library="Resource" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211128 22:25:31.373" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20211128 22:25:31.372" endtime="20211128 22:25:32.582"/>
+</kw>
+<status status="PASS" starttime="20211128 22:25:31.372" endtime="20211128 22:25:32.582"/>
+</kw>
+<kw name="Given than user access the Swag Labs website" library="Resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211128 22:25:32.584" level="INFO">Opening url 'https://www.saucedemo.com/'</msg>
+<status status="PASS" starttime="20211128 22:25:32.583" endtime="20211128 22:25:32.781"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Swag Labs</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211128 22:25:32.793" level="INFO">Page title is 'Swag Labs'.</msg>
+<status status="PASS" starttime="20211128 22:25:32.782" endtime="20211128 22:25:32.793"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>id=login-button</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20211128 22:25:32.830" level="INFO">Element 'id=login-button' is displayed.</msg>
+<status status="PASS" starttime="20211128 22:25:32.793" endtime="20211128 22:25:32.830"/>
+</kw>
+<status status="PASS" starttime="20211128 22:25:32.583" endtime="20211128 22:25:32.831"/>
+</kw>
+<kw name="When user informs username and password" library="Resource">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=user-name</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211128 22:25:32.833" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<status status="PASS" starttime="20211128 22:25:32.832" endtime="20211128 22:25:32.978"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211128 22:25:32.979" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20211128 22:25:32.978" endtime="20211128 22:25:33.091"/>
+</kw>
+<status status="PASS" starttime="20211128 22:25:32.831" endtime="20211128 22:25:33.091"/>
+</kw>
+<kw name="And click Login button" library="Resource">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id=login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211128 22:25:33.093" level="INFO">Clicking button 'id=login-button'.</msg>
+<status status="PASS" starttime="20211128 22:25:33.092" endtime="20211128 22:25:33.204"/>
+</kw>
+<status status="PASS" starttime="20211128 22:25:33.092" endtime="20211128 22:25:33.205"/>
+</kw>
+<kw name="And click in the button NAME(A TO Z)" library="Resource">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css=.product_sort_container</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211128 22:25:33.207" level="INFO">Clicking element 'css=.product_sort_container'.</msg>
+<status status="PASS" starttime="20211128 22:25:33.206" endtime="20211128 22:25:33.374"/>
+</kw>
+<status status="PASS" starttime="20211128 22:25:33.205" endtime="20211128 22:25:33.374"/>
+</kw>
+<kw name="Then the options Name (A TO Z), Name (Z TO A), Price (low to high), Price (high to low) should be shown" library="Resource">
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>css=.product_sort_container</arg>
+<arg>${FILTER_OPTIONS}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20211128 22:25:33.403" level="INFO">Element 'css=.product_sort_container' contains text 'Name (A to Z)
+Name (Z to A)
+Price (low to high)
+Price (high to low)'.</msg>
+<status status="PASS" starttime="20211128 22:25:33.375" endtime="20211128 22:25:33.403"/>
+</kw>
+<status status="PASS" starttime="20211128 22:25:33.375" endtime="20211128 22:25:33.403"/>
+</kw>
+<kw name="Close Website" library="Resource" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20211128 22:25:33.404" endtime="20211128 22:25:35.602"/>
+</kw>
+<status status="PASS" starttime="20211128 22:25:33.404" endtime="20211128 22:25:35.602"/>
+</kw>
+<status status="PASS" starttime="20211128 22:25:31.371" endtime="20211128 22:25:35.603"/>
+</test>
+<status status="PASS" starttime="20211128 22:25:31.139" endtime="20211128 22:25:35.605"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="SwagLagsTests">SwagLagsTests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
