@@ -4,10 +4,11 @@ Library  SeleniumLibrary
 
 *** Variables ***
 
-${URL}       https://www.saucedemo.com/
-${USERNAME}  standard_user
-${PASSWORD}  secret_sauce
-${FILTER_OPTIONS}  Name (A to Z)\nName (Z to A)\nPrice (low to high)\nPrice (high to low)
+${URL}                            https://www.saucedemo.com/
+${USERNAME}                       standard_user
+${PASSWORD}                       secret_sauce
+${FILTER_OPTIONS}                 Name (A to Z)\nName (Z to A)\nPrice (low to high)\nPrice (high to low)
+@{MANDATORY_FIELDS_TO_CHECKOUT}   Jessica  Luz  37517000
 
 *** Keywords ***
 
@@ -65,3 +66,50 @@ And click in the button NAME(A TO Z)
 
 Then the options Name (A TO Z), Name (Z TO A), Price (low to high), Price (high to low) should be shown
   Element Should Contain    css=.product_sort_container    ${FILTER_OPTIONS}
+
+And click in the button "ADD TO CART" of "Sauce Labs Backpack"
+  Click Button    id=add-to-cart-sauce-labs-backpack
+
+Then the button text should change to REMOVE
+  Element Text Should Be    id=remove-sauce-labs-backpack    REMOVE
+
+And the number 1 should apper in the cart
+  Element Text Should Be    css=span.shopping_cart_badge    1
+
+And click in the cart item
+  Click Element    css=a.shopping_cart_link
+
+Then the page of checkout should open
+  Element Text Should Be    css=span.title    YOUR CART
+
+And click in the button "REMOVE" from item in the cart page
+  Click Button    id=remove-sauce-labs-backpack
+
+Then the item should desappear from cart
+  Element Should Not Be Visible    css=div.cart_quantity
+
+And click in the button "CHECKOUT"
+  Click Button    id=checkout
+
+Then the checkout information page should load
+  Element Text Should Be    css=span.title    CHECKOUT: YOUR INFORMATION
+
+And inform First Name, Last Name and Zip Code
+  Input Text    id=first-name    ${MANDATORY_FIELDS_TO_CHECKOUT[0]}
+  Input Text    id=last-name     ${MANDATORY_FIELDS_TO_CHECKOUT[1]}
+  Input Text    id=postal-code   ${MANDATORY_FIELDS_TO_CHECKOUT[2]}
+
+And click in the button "CONTINUE"
+  Click Button    id=continue
+
+Then the page Checkout: overview should load
+  Element Text Should Be       css=span.title  CHECKOUT: OVERVIEW
+  Element Text Should Be       css=div.summary_info_label    Payment Information:
+  Element Should Be Visible    css=div.summary_total_label
+
+And Last Name and Zip Code
+  Input Text    id=last-name     ${MANDATORY_FIELDS_TO_CHECKOUT[1]}
+  Input Text    id=postal-code   ${MANDATORY_FIELDS_TO_CHECKOUT[2]}
+
+Then the message "Error: First Name is required" shoud appears in the continue button
+  Element Text Should Be    css=h3[data-test='error']    Error: First Name is required
